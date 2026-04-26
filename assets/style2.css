@@ -116,10 +116,44 @@ form button:hover{
     }
 }
 
-section{
-    display: none;
+section { display:none; }
+section.active { display:block; }
+
+/* table */
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-section.active{
-    display: block;
+table th, table td{
+    padding: 15px;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #162530;
+}
+
+table th {
+    background: #0a91ff;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+table tr:nth-child(even){
+    background: #f9f9f9;
+}
+
+table tr:hover {
+    background: rgba(10, 145, 255, 0.05);
+    transition: background 0.3s ease;
+}
+
+table td{
+    border-bottom: 1px solid #eee;
 }

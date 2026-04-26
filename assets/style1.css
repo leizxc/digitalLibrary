@@ -705,3 +705,31 @@ table td{
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+
+/*rules */
+
+.rules{
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 40px 80px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rules h1{
+    text-align: center;
+    color: #162530;
+    margin-bottom: 20px;
+}
+
+.rules h2{
+    color: #0a91ff;
+    margin-top: 20px;
+}
+
+.rules p{
+    text-align: justify;
+    margin-bottom: 15px;
+    color: #333;
+}

@@ -39,7 +39,7 @@ if(isset($_SESSION['userid'])){
 
         <nav class="navbar">
         <div class="navbar-container">
-            <a href="homepage.php" class="navbar-logo">Library</a>
+            <a href="homeprofandstud.php" class="navbar-logo">Library</a>
             <div class="search-boxx">
                 <input type="text" name="search" id="srch" placeholder="Search a Book">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -52,8 +52,8 @@ if(isset($_SESSION['userid'])){
             </button>
             <ul class="navbar-menu">
                 <li><a href="homeprofandstud.php" class="active">Home</a></li>
-                <li><a href="#">Reservation</a></li>
-                <li><a href="#">BorrowedBooksform</a></li>
+                <li><a href="reservation.php">Reservation</a></li>
+                <li><a href="borrowedbooksform.php">BorrowedBooksform</a></li>
                 <li><a href="profile.php">Profile</a></li>
             </ul>
             <div class="profile-dropdown">
@@ -64,7 +64,7 @@ if(isset($_SESSION['userid'])){
                 <div class="dropdown-menu">
                     <a href="profile.php">Profile</a>
                     <a href="#">Settings</a>
-                    <a href="homepage.php">Logout</a>
+                    <a href="index.php">Logout</a>
                 </div>
             </div>
         </div>

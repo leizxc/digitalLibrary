@@ -32,11 +32,11 @@ $con = connection();
                 <span class="bar"></span>
             </button>
             <ul class="navbar-menu">
-                <li><a href="homepage.php" class="active">Home</a></li>
+                <li><a href="index.php" class="active">Home</a></li>
                 <li><a href="#reservation">Reservation</a></li>
                 <li><a href="#borrow">BorrowedBooksform</a></li>
                 <li><a href="DigitalLibrary.php">LogIn</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="about.php">About</a></li>
             </ul>
         </div>
        </nav>
@@ -132,7 +132,6 @@ $con = connection();
     //attach sa mga menu links
     document.querySelector('a[href="#reservation"]').addEventListener('click',showloginpopup);
     document.querySelector('a[href="#borrow"]').addEventListener('click',showloginpopup);
-    document.querySelector('a[href="#about"]').addEventListener('click',showloginpopup);
 
     //close modal
     window.addEventListener('click', function(e){

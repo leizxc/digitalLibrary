@@ -61,7 +61,7 @@ $selectedBook = isset($_GET['book_id'])? $_GET['book_id'] : '' ;
     <body>
         <nav class="navbar">
         <div class="navbar-container">
-            <a href="homepage.php" class="navbar-logo">Library</a>
+            <a href="homeprofandstud.php" class="navbar-logo">Library</a>
             <div class="search-boxx">
                 <input type="text" name="search" id="srch" placeholder="Search a Book">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -75,7 +75,7 @@ $selectedBook = isset($_GET['book_id'])? $_GET['book_id'] : '' ;
             <ul class="navbar-menu">
                 <li><a href="homeprofandstud.php" class="active">Home</a></li>
                 <li><a href="reservation.php">Reservation</a></li>
-                <li><a href="#">BorrowedBooksform</a></li>
+                <li><a href="borrowedbooksform.php">BorrowedBooksform</a></li>
                 <li><a href="profile.php">Profile</a></li>
             </ul>
             <div class="profile-dropdown">
@@ -86,7 +86,7 @@ $selectedBook = isset($_GET['book_id'])? $_GET['book_id'] : '' ;
                 <div class="dropdown-menu">
                     <a href="profile.php">Profile</a>
                     <a href="#">Settings</a>
-                    <a href="homepage.php">Logout</a>
+                    <a href="index.php">Logout</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ $selectedBook = isset($_GET['book_id'])? $_GET['book_id'] : '' ;
         <label for="book_id">Select Book</label>
         <select name="book_id" id="book_id" required>
             <?php 
-            $books = mysqli_query($con, "SELECT id, title FROM books WHERE status='available'");
+            $books = mysqli_query($con, "SELECT id, title FROM books WHERE status='available' AND bookstat = 'hardcopy'OR bookstat = 'softcopy/hardcopy'");
             while($row = mysqli_fetch_assoc($books)){
                 $selected = ($row['id'] == $selectedBook) ? 'selected' : '';
                 echo "<option value='{$row['id']}' $selected>{$row['title']}</option>";

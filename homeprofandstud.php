@@ -28,7 +28,7 @@ if(isset($_SESSION['userid'])){
     <body>
        <nav class="navbar">
         <div class="navbar-container">
-            <a href="homepage.php" class="navbar-logo">Library</a>
+            <a href="homeprofandstud.php" class="navbar-logo">Library</a>
             <div class="search-boxx">
                 <input type="text" name="search" id="srch" placeholder="Search a Book">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -40,9 +40,9 @@ if(isset($_SESSION['userid'])){
                 <span class="bar"></span>
             </button>
             <ul class="navbar-menu">
-                <li><a href="#" class="active">Home</a></li>
+                <li><a href="homeprofandstud.php" class="active">Home</a></li>
                 <li><a href="reservation.php">Reservation</a></li>
-                <li><a href="#">BorrowedBooksform</a></li>
+                <li><a href="borrowedbooksform.php">BorrowedBooksform</a></li>
                 <li><a href="profile.php">Profile</a></li>
             </ul>
             <div class="profile-dropdown">
@@ -55,7 +55,7 @@ if(isset($_SESSION['userid'])){
                 <a href="#"><i class="fa fa-cog"></i> Settings & Privacy <span class="arrow">&rsaquo;</span></a>
                 <a href="#"><i class="fa fa-question-circle"></i> Help & Support <span class="arrow">&rsaquo;</span></a>
                 <div class="divider"></div>
-                <a href="homepage.php"><i class="fa fa-sign-out"></i> Logout <span class="arrow">&rsaquo;</span></a>
+                <a href="index.php"><i class="fa fa-sign-out"></i> Logout <span class="arrow">&rsaquo;</span></a>
             </div>
             </div>
         </div>
