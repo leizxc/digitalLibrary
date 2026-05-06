@@ -133,7 +133,7 @@ include("connection.php");
                 <?php endif; ?>
             </div>
 
-            <form class="form-box" action="register.php" method="POST" autocomplete="off">
+           <form class="form-box" action="register.php" method="POST" enctype="multipart/form-data" autocomplete="off">
 
                 <div class="input-group">
                     <input type="text" name="fname" class="input-field" placeholder=" " required>
@@ -155,12 +155,17 @@ include("connection.php");
                     <label class="floating-label">Email Address</label>
                 </div>
                 <div class="input-group">
-                    <select name="role" id="role">
-                        <option value="">--Select Role---</option>
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                    </select>
-                </div>
+    <select name="role" id="role" onchange="toggleTeacherUpload()">
+        <option value="">--Select Role---</option>
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+    </select>
+</div>
+
+<div class="input-group" id="teacher-upload" style="display:none;">
+    <label>Upload Teacher ID</label>
+    <input type="file" name="teacher_id" accept="image/*">
+</div>
 
                 <div class="input-group">
                     <input type="password" id="signup-password" name="password" class="input-field" placeholder=" " required autocomplete="new-password">
@@ -208,4 +213,13 @@ include("connection.php");
         }
     </script>
     <?php endif; ?>
+
+    <script>
+        function toggleTeacherUpload(){
+        const roleSelect = document.getElementById("role");
+        const teacherUpload = document.getElementById("teacher-upload");
+         teacherUpload.style.display = (roleSelect.value === "teacher") ? "block" : "none";
+}
+
+    </script>
 </html>

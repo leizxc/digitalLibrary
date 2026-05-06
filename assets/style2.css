@@ -13,20 +13,23 @@ body{
 
 .dashboard-container{
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #eff3ff;
+    overflow: hidden;
 }
 
 /*sidebar */
 .sidebar{
     width: 250px;
-    height: 100vh;
+    min-height: 100vh;
     background: rgba(10, 145, 255, 0.84);
     color: #fff;
     padding: 25px 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
 }
 
 .sidebar h2{
@@ -62,6 +65,17 @@ body{
 .main-content{
     flex: 1;
     padding: 40px;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+/*table cointaner for managed books */
+.managed-books{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
 }
 
 .main-content header h1{
@@ -83,13 +97,35 @@ body{
 form input[type="text"],
 form input[type="file"],
 form select{
-    width: 100%;
+     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
+    
+    outline: none;
 }
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #0a91ff;
+  box-shadow: 0 0 6px rgba(10,145,255,0.4);
+}
+
 
 form button {
     padding: 10px 20px;
@@ -103,6 +139,14 @@ form button {
 
 form button:hover{
     background: #0077cc;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
 }
 
 /*responsinve */
@@ -157,3 +201,52 @@ table tr:hover {
 table td{
     border-bottom: 1px solid #eee;
 }
+
+/*dashboard */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.card{
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h3{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.3s;
+  background: #0a91ff;
+  color: #fff;
+}
+
+.btn:hover {
+  background: #0077cc;
+}
+
+.btn-danger {
+  background: #ff4d4d;
+}
+
+.btn-danger:hover {
+  background: #cc0000;
+}
+

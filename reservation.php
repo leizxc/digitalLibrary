@@ -56,6 +56,20 @@ $selectedBook = isset($_GET['book_id'])? $_GET['book_id'] : '' ;
 <!DOCTYPE html>
 <html>
     <head>
+          <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var meta = document.createElement('meta');
+    meta.name = "viewport";
+    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      // mobile or tablet
+      meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no";
+    } else {
+      // desktop
+      meta.content = "width=device-width, initial-scale=1.0";
+    }
+    document.getElementsByTagName('head')[0].appendChild(meta);
+  });
+</script>
        <link rel="stylesheet" href="./assets/style1.css">
     </head>
     <body>

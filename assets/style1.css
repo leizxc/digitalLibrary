@@ -274,18 +274,22 @@ border: 2px solid #fff;
     background: #0077cc;
 }
 
-#search-results{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 250px;
-    overflow-y: auto;
-    display: none;
-    z-index: 1000;
+#search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;               /* sakto sa lapad ng search box */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 9999;
+  max-height: 450px;         /* mas mahaba dropdown list */
+  overflow-y: auto;          /* scroll kapag marami */
+  overflow-x: hidden;        /* alisin horizontal scroll */
+  display: none;
+  white-space: normal;       /* wrap text para hindi putol */
+  word-wrap: break-word;     /* hatiin kung sobrang haba */
 }
 
 .search-item{
@@ -320,13 +324,26 @@ border: 2px solid #fff;
     margin: 0;
 }
 
-#search-results div{
-    padding: 10px;
-    cursor: pointer;
+#search-results div {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
 #search-results div:hover{
     background: #f0f0f0;
+}
+
+/* Mobile tweak */
+@media (max-width: 480px) {
+  #search-results {
+    max-height: 500px;       /* mas mahaba pa sa mobile */
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  #search-results div {
+    padding: 8px 10px;
+  }
 }
 
 /*pop up para dun sa ibang features */
@@ -732,4 +749,211 @@ table td{
     text-align: justify;
     margin-bottom: 15px;
     color: #333;
+}
+
+/*mobile */
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar-logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .search-boxx {
+    max-width: 180px;
+    padding: 4px 8px;
+  }
+
+  .search-boxx input {
+    width: 100% !important;
+    font-size: 0.9rem;
+    height: 32px;
+  }
+
+  .navbar-toggle {
+    display: block !important;
+    margin-left: 10px;
+    z-index: 1000;
+  }
+
+  .bar {
+    width: 22px;
+    height: 3px;
+    margin: 3px;
+    background: #fff;
+  }
+}
+
+/* Chrome-specific tweak */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 480px) {
+    .search-boxx {
+      max-width: 170px !important;
+    }
+    .search-boxx input {
+      font-size: 0.9rem !important;
+      height: 32px !important;
+    }
+    .navbar-logo {
+      font-size: 1.4rem !important;
+    }
+  }
+}
+
+/* Mobile dropdown menu adjustments */
+@media (max-width: 480px) {
+  .dropdown-menu {
+    min-width: 150px;        /* mas maliit kaysa desktop */
+    font-size: 0.85rem;      /* liitan font */
+    padding: 6px 0;          /* bawas padding */
+    right: 5px;              /* mas dikit sa gilid */
+  }
+
+  .dropdown-menu a {
+    padding: 6px 10px;       /* mas compact spacing */
+    font-size: 0.85rem;
+  }
+
+  .profile-name {
+    font-size: 0.85rem;      /* liitan din yung name */
+  }
+
+  .profile-img {
+    width: 28px;             /* mas maliit avatar */
+    height: 28px;
+  }
+}
+
+/* General mobile refinements */
+@media (max-width: 480px) {
+  body, html {
+    width: 100%;
+    overflow-x: hidden; /* iwas horizontal scroll */
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.85rem; /* mas compact text */
+  }
+
+  table th, table td {
+    padding: 6px 4px;   /* bawas padding para magkasya */
+    word-wrap: break-word;
+    white-space: normal; /* wrap long titles */
+  }
+
+  .library h2 {
+    font-size: 1.1rem;  /* mas maliit heading */
+    text-align: center;
+  }
+
+  .book-card img {
+    max-width: 100px;   /* bawas laki ng cover sa mobile */
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    width: 100%;              /* sakupin buong lapad */
+    margin: 0 auto;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .profile-card img {
+    width: 90px;              /* mas maliit profile pic */
+    height: 90px;
+    margin: 0 auto;
+    display: block;
+  }
+
+   .profile-card h2 {
+    display: inline-block;   /* name at button nasa iisang linya */
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .profile-card h3 {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .profile-card .about {
+    font-size: 0.9rem;        /* liitan text */
+    line-height: 1.4;
+    word-wrap: break-word;    /* iwas putol sa mahahabang info */
+  }
+
+  .profile-card .about p {
+    margin: 6px 0;
+  }
+  .btn-edit {
+     display: inline-block;   /* para pwede tabihan ng name */
+    font-size: 0.8rem;       /* mas maliit font */
+    padding: 4px 10px;       /* bawas padding */
+    width: auto;             /* huwag fixed width */
+    max-height: 32px;        /* mas maliit height */
+    margin-left: 8px;        /* konting distansya mula sa name */
+    vertical-align: middle;  /* pantay sa text */
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .table-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+  }
+
+  .borrowed-books-table {
+    width: 100%;
+    min-width: 500px;
+    table-layout: fixed;
+    font-size: 0.75rem;
+  }
+
+  .borrowed-books-table th,
+  .borrowed-books-table td {
+    padding: 4px 6px;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+.maint-content {
+  min-width: 0;     
+  width: 100%;
+  overflow-x: hidden; /* prevent body conflict */
+}
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .book-card img {
+    display: block;          /* gawing block element */
+    margin: 0 auto;          /* center horizontally */
+    max-width: 120px;        /* limit width para di sobrang laki */
+    height: auto;
+  }
+
+  .book-card {
+    text-align: center;      /* center lahat ng content sa card */
+  }
 }

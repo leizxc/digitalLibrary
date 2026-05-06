@@ -19,8 +19,23 @@ if(isset($_SESSION['userid'])){
 <html lang="en">
     
 <head>
+    
+      <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var meta = document.createElement('meta');
+    meta.name = "viewport";
+    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      // mobile or tablet
+      meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no";
+    } else {
+      // desktop
+      meta.content = "width=device-width, initial-scale=1.0";
+    }
+    document.getElementsByTagName('head')[0].appendChild(meta);
+  });
+</script>
+
     <meta charset="UTF-8"> <!-- FIXED -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="assets/style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -217,5 +232,44 @@ if(isset($_SESSION['userid'])){
     });
     closeModal.addEventListener('click',() => modal.style.display = "none");
     window.addEventListener('click', e => {if (e.target === modal) modal.style.display = "none";})
+
+    // handle click sa search results
+resultsBox.addEventListener('click', function(e) {
+    const target = e.target.closest('.search-item'); 
+    // siguraduhin na may class="search-item" sa bawat result na binabalik ng searchbarlogic.php
+    if(target){
+        const bookId = target.getAttribute('data-id');
+        fetch(`getBookDetails.php?id=${bookId}`)
+        .then(res => res.json())
+        .then(book => {
+            modalImage.src = `uploads/${book.image}`;
+            modalTitle.textContent = book.title;
+            modalAuthor.textContent = `Author: ${book.author}`;
+            modalStatus.textContent = `Status: ${book.status}`;
+            modalBookstat.textContent = `Book Status: ${book.bookstat}`;
+            modalBooksId.textContent = `Book Id: ${book.id}`;
+
+            // clear old buttons
+            modalActions.innerHTML = "";
+
+            if(book.bookstat.toLowerCase().includes("hardcopy")){
+                const reserveBtn = document.createElement('button');
+                reserveBtn.textContent = "Reserve";
+                reserveBtn.className = "login-btn";
+                modalActions.appendChild(reserveBtn);
+            }
+
+            if(book.bookstat.toLowerCase().includes("softcopy")){
+                const readBtn = document.createElement('button');
+                readBtn.textContent = "Start Read";
+                readBtn.className = "login-btn";
+                modalActions.appendChild(readBtn);
+            }
+
+            modal.style.display = "flex";
+        });
+    }
+});
+
     </script>
 </html>

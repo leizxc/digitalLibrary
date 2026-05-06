@@ -12,8 +12,22 @@ $con = connection();
 <html lang="en">
     
 <head>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var meta = document.createElement('meta');
+    meta.name = "viewport";
+    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      // mobile or tablet
+      meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no";
+    } else {
+      // desktop
+      meta.content = "width=device-width, initial-scale=1.0";
+    }
+    document.getElementsByTagName('head')[0].appendChild(meta);
+  });
+</script>
+
     <meta charset="UTF-8"> <!-- FIXED -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="./assets/style1.css">
 </head>
