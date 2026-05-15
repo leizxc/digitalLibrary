@@ -72,7 +72,7 @@ if(isset($_SESSION['userid'])){
             </ul>
             <div class="profile-dropdown">
                 <button class="profile-btn">
-                    <img src="uploads/<?php echo !empty($userData['profile_img']) ? $userData['profile_img'] : 'default-img.png' ?>" alt="Profile" class="profile-img">
+                    <img src="<?php echo !empty($userData['profile_img']) ? 'uploads/' . $userData['profile_img'] : 'assets/images/people.png' ?>" alt="Profile" class="profile-img">
                     <span class="profile-name"><?php echo isset($userData['fname']) ? $userData['fname'] : 'Guest' ; ?></span>
                 </button>
                 <div class="dropdown-menu">
@@ -87,7 +87,7 @@ if(isset($_SESSION['userid'])){
         <section class="profile-wrapper">
     <div class="profile-card">
         <div class="profile-header">
-            <img src="uploads/<?php echo !empty($user['profile_img']) ? $user['profile_img'] : 'default-profile.png'; ?>" 
+            <img src="<?php echo !empty($user['profile_img']) ? 'uploads/' . $user['profile_img'] : 'assets/images/people.png'; ?>" 
                  alt="Profile Picture" class="profile-avatar">
             <div class="profile-info">
                 <h2><?php echo $user['fname'].' '.$user['lname']; ?></h2>

@@ -62,7 +62,7 @@ if(isset($_SESSION['userid'])){
             </ul>
             <div class="profile-dropdown">
                 <button class="profile-btn">
-                    <img src="uploads/<?php echo !empty($userData['profile_img']) ? $userData['profile_img'] : 'default-img.png' ?>" alt="Profile" class="profile-img">
+                    <img src="<?php echo !empty($userData['profile_img']) ? '/DigitalLibrary/uploads/' . $userData['profile_img'] : '/DigitalLibrary/assets/images/people.png'; ?>" alt="profile" class="profile-img">
                     <span class="profile-name"><?php echo isset($userData['fname']) ? $userData['fname'] : 'Guest' ; ?></span>
                 </button>
                 <div class="dropdown-menu">

@@ -94,7 +94,7 @@ $selectedBook = isset($_GET['book_id'])? $_GET['book_id'] : '' ;
             </ul>
             <div class="profile-dropdown">
                 <button class="profile-btn">
-                    <img src="uploads/<?php echo !empty($userData['profile_img']) ? $userData['profile_img'] : 'default-img.png' ?>" alt="Profile" class="profile-img">
+                    <img src="<?php echo !empty($userData['profile_img']) ? 'uploads/' . $userData['profile_img'] : 'assets/images/people.png' ?>" alt="Profile" class="profile-img">
                     <span class="profile-name"><?php echo isset($userData['fname']) ? $userData['fname'] : 'Guest' ; ?></span>
                 </button>
                 <div class="dropdown-menu">
